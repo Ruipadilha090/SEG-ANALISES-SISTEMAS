@@ -1,0 +1,98 @@
+TRABALHO DE ANÁLISE DE SISTEMAS
+Integrantes do grupo: Rui, Giovana, Marlon, Joaquim e William
+
+Empresa de Café, lancheria e confeitaria, com serviço de delivery
+Nome: 				Café Aroma
+Tipo: 				Física e Delivery
+Horário de Funcionamento:	Horário Comercial
+Plataforma Digital:		Contato Whatsapp, IFood
+
+	Site
+-Design rústico, natural
+-Menu com preços, ingredientes e imagens
+-Atendimento com integração IA
+
+	Aplicativo Interno.
+-Gerenciamento e organização interna de dados, recursos e controle financeiro
+-Registro e histórico de pedidos e vendas, com relatório de balanço geral
+-Registro de estoque, mercadoria e fornecedores. dividido por nome e quantia 
+-Agenda interna
+-Agendamento de mesa
+-Opção para que o cliente possa solicitar o atendimento.
+-Registro de pedidos em aberto, aparecendo em tempo real.
+-Historico de Clientes, com dados e perfil
+
+	Cliente
+-id_cliente
+-nome
+-CPF	
+-Telefone
+-E-mail
+-Endereço
+-Data_cadastro
+	Produtos
+-Id_Produto
+-produto
+-produto_cpmplemento
+-Codigo de Barras	
+-Preço
+-Quantidade
+-Disponibilidade
+
+	Serviços
+-Id_serviço
+-tipo_servico
+-Descrição do serviço
+-preco_serviço
+
+	Vendas
+-CPF cliente
+- id_vendas
+- numero_vendas
+- status-vendas
+- Quantidade produto
+   
+
+Criação de tabelas e diagramas
+
+CREATE TABLE "cliente" (
+	"id_cliente"	TEXT NOT NULL UNIQUE,
+	"nome"	VARCHAR(100) NOT NULL,
+	"telefone"	VARCHAR(15) UNIQUE,
+	"email"	VARCHAR(100) UNIQUE,
+	"cpf"	VARCHAR(14) NOT NULL UNIQUE,
+	"endereco"	INTEGER,
+	"data_cadastro"	DATETIME,
+	UNIQUE("cpf"),
+	UNIQUE("email"),
+	PRIMARY KEY("id_cliente","cpf"),
+	UNIQUE("telefone")
+);
+
+CREATE TABLE "produtos" (
+	"id_produto"	INTEGER NOT NULL UNIQUE,
+	"produto"	TEXT NOT NULL,
+	"produto_complemento"	TEXT,
+	"quantidade"	INTEGER NOT NULL,
+	"disponibilidade"	INTEGER,
+	"preco"	TEXT NOT NULL,
+	"codigo_barras"	TEXT UNIQUE,
+	PRIMARY KEY("id_produto" AUTOINCREMENT)
+);
+
+CREATE TABLE "servicos" (
+	"id_servico"	INTEGER NOT NULL UNIQUE,
+	"tipo_servico"	TEXT NOT NULL,
+	"preco_servico"	TEXT NOT NULL,
+	"descricao_servico"	TEXT,
+	PRIMARY KEY("id_servico" AUTOINCREMENT)
+);
+
+CREATE TABLE "vendas" (
+	"id_venda"	INTEGER NOT NULL UNIQUE,
+	"numero_venda"	INTEGER NOT NULL UNIQUE,
+	"status_venda"	INTEGER NOT NULL,
+	"quantidade_produto"	INTEGER NOT NULL,
+	PRIMARY KEY("id_venda" AUTOINCREMENT)
+);
+
