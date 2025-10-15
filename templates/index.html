@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Café Aroma</title>
+<style>
+body{
+    background-color: #e4a4ac;
+}
+h1{
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    color: #033DA0;
+    font-size: 50px;
+    font-style: italic;
+    text-shadow: #3B0D60 2px 2px;
+}
+h2{
+    color: #1F6EC2;
+    text-shadow: #033DA0 2px 2px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+}
+button{
+    background-color: #DFB0D1;
+    font-family:'Courier New', Courier, monospace;
+    color: #3B0D60;
+    font-weight: bold;
+    font-size: 17px;
+}
+input{
+    border-radius: 7px;
+    border-style: dashed 2px;
+    font-size: 17px;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #F8DCE3;
+}
+</style>
+</head>
+<body>
+    <h1> Café Aroma </h1>
+    <h2> Adicionar Cliente </h2>
+    <ul style="list-style: none;">
+        <li>
+        <form action="/create" method="POST">
+            <input type="text" name="nome" placeholder="Nome">
+            <input type="text" name="telefone" placeholder="Telefone">
+            <input type="text" name="email" placeholder="E-mail">
+            <input type="text" name="cpf" placeholder="CPF">
+            <input type="text" name="endereco" placeholder="Endereço">
+            <button type="submit"> Cadastrar Cliente </button>
+        </form>
+        </li>
+    </ul>
+    <h2>Clientes Cadastrados</h2>
+    <ul style="list-style: none;">
+        {% for cliente in clientes %}
+        <li> 
+            <form action="/update/{{cliente.id_cliente}}" method="post" style="display: inline;">
+                <input type="text" name="nome" value="{{cliente.nome}}">
+                <input type="text" name="telefone" value="{{cliente.telefone}}">
+                <input type="text" name="email" value="{{cliente.email}}">
+                <input type="text" name="cpf" value="{{cliente.cpf}}">
+                <input type="text" name="endereco" value="{{cliente.endereco}}">
+                <button type="submit">Atualizar</button>
+            </form>
+
+            <form action="/delete/{{cliente.id_cliente}}" method="post" style="display: inline;">
+                <button type="submit">Excluir</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
