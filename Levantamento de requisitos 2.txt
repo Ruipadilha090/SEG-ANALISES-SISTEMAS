@@ -79,7 +79,7 @@ CREATE TABLE "cliente" (
 	"data_cadastro"	DATETIME,
 	UNIQUE("cpf"),
 	UNIQUE("email"),
-	PRIMARY KEY("id_cliente","cpf"),
+	PRIMARY KEY("id_cliente"),
 	UNIQUE("telefone")
 );
 
@@ -89,7 +89,7 @@ CREATE TABLE "produtos" (
 	"produto_complemento"	TEXT,
 	"quantidade"	INTEGER NOT NULL,
 	"disponibilidade"	INTEGER,
-	"preco"	TEXT NOT NULL,
+	"preco"	FLOAT NOT NULL,
 	"codigo_barras"	TEXT UNIQUE,
 	PRIMARY KEY("id_produto" AUTOINCREMENT)
 );
