@@ -22,6 +22,20 @@ Plataforma Digital:		Contato Whatsapp, IFood
 -Registro de pedidos em aberto, aparecendo em tempo real.
 -Historico de Clientes, com dados e perfil
 
+REQUISITOS FUNCIONAIS:
+-sistema de organização de dados importantes para o exercício da cafeteria
+-cadastro de perfil de clientes, com cpf, contatos e endereço
+-relatório de estoque, vendas, ganhos e notas fiscais
+-opções de atualização e exclusão de dados cadastrados
+-agenda de organização interna de datas e prazos
+-agendamento de clientes para pedidos, mesas e serviços
+
+	REQUISITOS NÃO FUNCIONAIS
+-acessibilidade: design de navegação fácil, intuitiva e direta ao ponto
+-automação de atualização: dados como quantia em estoque serão reajustados automaticamente a partir da emissão da nota fiscal
+-performance: leve, com respostas rápidas e responsivas
+-armazenamento: os bancos de dados são armazenados internamente, com backups semanais em nuvem
+
 	Cliente
 -id_cliente
 -nome
